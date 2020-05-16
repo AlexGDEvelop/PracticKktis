@@ -1,0 +1,102 @@
+﻿<Window x:Class="Practic3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practic3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="552.062" Width="985.567" AllowsTransparency="True" WindowStyle="None" Background="Transparent">
+    <Grid>
+        <Image Source="block.png"/>
+        <GroupBox Header="Windows Media PLayer" Margin="515,227,277,251" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-24.442"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <Border>
+                <Button x:Name="wmp_start" Content="Создать" Width="100" Height="50" Click="wmp_start_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Открыть Windows Media Player
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Border>
+        </GroupBox>
+        <GroupBox Header="AIMP" Margin="279,213,513,265" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="23.302"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <Border>
+                <Button x:Name="aimp_start" Content="Создать" Width="100" Height="50" Click="aimp_start_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Открыть AIMP
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Border>
+        </GroupBox>
+        <GroupBox Header="VLC PLayer" Margin="500,365,292,113" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-24.442"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <Border>
+                <Button x:Name="d_start" Width="100" Content="Создать" Height="50" Click="d_start_Click">
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Открыть VLC Player
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Border>
+        </GroupBox>
+        <GroupBox Header="Foobnix" Margin="274,357,518,121" RenderTransformOrigin="0.5,0.5" Foreground="White">
+            <GroupBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="23.302"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </GroupBox.RenderTransform>
+            <Border>
+                <Button x:Name="f_start" Content="Создать" Width="100" Height="50" Click="f_start_Click" >
+                    <Button.ToolTip>
+                        <ToolTip>
+                            Открыть Foobnix
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+            </Border>
+        </GroupBox>
+        <Border>
+
+
+        </Border>
+        <Button x:Name="close"  Width="100" Height="50" Margin="446,98,440,404" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="imgonline-com-ua-Transparent-backgr-SoPSEMoFeUkzKk.png" Stretch="Uniform"/>
+            </Button.Background>
+            <Button.ToolTip>
+                <ToolTip>
+                    Закрыть
+                </ToolTip>
+            </Button.ToolTip>
+        </Button>
+    </Grid>
+</Window>

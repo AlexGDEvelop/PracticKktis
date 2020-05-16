@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{052478C0-E7AE-46FA-AB47-B22E18E9BB86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Практическое_задание_2</RootNamespace>
+    <AssemblyName>Практическое задание 2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Практическое_задание_2.Form1</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>OneDrive.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="pid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="pr4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Win32WindowsCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="practic2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Пр 3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <None Include="winapi.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Activities" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="pid.resx">
+      <DependentUpon>pid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pr4.resx">
+      <DependentUpon>pr4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="practic2.resx">
+      <DependentUpon>practic2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Win32WindowsCreate.resx">
+      <DependentUpon>Win32WindowsCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Пр 3.resx">
+      <DependentUpon>Пр 3.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="OneDrive.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
