@@ -11,5 +11,8 @@
     <li>Программ использующая Dll в папке Practic4UseDLL</li>
   </ul>
 <li> Пятое задание в папке pr5_ProgrammingEvntsKPrssKDownKUp</li>
+  <ul>
+    <li>Задание на 5 в папке Pacman</li>
+  </ul>
 <li> Десятое Задание в папке WebBrowser</li>
 </ol>
