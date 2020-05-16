@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Учебная практи
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Практическое задание 2", "Практическое задание 2\Практическое задание 2.csproj", "{052478C0-E7AE-46FA-AB47-B22E18E9BB86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "test", "test\test.csproj", "{D8B89438-83E1-4E71-B20D-6664F50E7BBA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Practic3", "Practic3\Practic3.csproj", "{78AB015E-B819-44D1-85D3-F4C1850613EC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebBrowser", "WebBrowser\WebBrowser.csproj", "{DB8FB7AA-75EC-4E1E-BA72-6AC30B51FD00}"
@@ -20,6 +18,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Practic4UseDll", "Practic4UseDll\Practic4UseDll.csproj", "{E9C5A3C7-9DCB-4756-A7D4-9910132E0C69}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pr5_ProgrammingEvntsKPrssKDownKUp", "pr5_ProgrammingEvntsKPrssKDownKUp\pr5_ProgrammingEvntsKPrssKDownKUp.csproj", "{960F207F-2141-4EE0-94BF-2839DED03CFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PacMan", "PacMan\PacMan.csproj", "{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,14 +45,6 @@ Global
 		{052478C0-E7AE-46FA-AB47-B22E18E9BB86}.Release|Any CPU.Build.0 = Release|Any CPU
 		{052478C0-E7AE-46FA-AB47-B22E18E9BB86}.Release|x86.ActiveCfg = Release|Any CPU
 		{052478C0-E7AE-46FA-AB47-B22E18E9BB86}.Release|x86.Build.0 = Release|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Debug|x86.Build.0 = Debug|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Release|x86.ActiveCfg = Release|Any CPU
-		{D8B89438-83E1-4E71-B20D-6664F50E7BBA}.Release|x86.Build.0 = Release|Any CPU
 		{78AB015E-B819-44D1-85D3-F4C1850613EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78AB015E-B819-44D1-85D3-F4C1850613EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78AB015E-B819-44D1-85D3-F4C1850613EC}.Debug|x86.ActiveCfg = Debug|Any CPU
@@ -99,6 +91,14 @@ Global
 		{960F207F-2141-4EE0-94BF-2839DED03CFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{960F207F-2141-4EE0-94BF-2839DED03CFC}.Release|x86.ActiveCfg = Release|Any CPU
 		{960F207F-2141-4EE0-94BF-2839DED03CFC}.Release|x86.Build.0 = Release|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Debug|x86.Build.0 = Debug|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Release|x86.ActiveCfg = Release|Any CPU
+		{9BF04DD9-6BEE-4EE8-8E0B-AB16D53E0D44}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
