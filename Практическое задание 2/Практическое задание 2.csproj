@@ -58,6 +58,7 @@
     <Compile Include="Пр 3.cs">
       <SubType>Form</SubType>
     </Compile>
+    <None Include="bin\Debug\Практическое задание 2.exe.config" />
     <None Include="winapi.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,7 +85,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\Практическое задание 2.exe" />
+    <Content Include="bin\Debug\Практическое задание 2.pdb" />
     <Content Include="OneDrive.ico" />
+    <Content Include="bin\pr4.exe" />
+    <Content Include="bin\practic2.exe" />
+    <Content Include="bin\Win32WindowsCreate.exe" />
+    <Content Include="bin\Пр 3.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -67,6 +67,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bin\Debug\pr5_ProgrammingEvntsKPrssKDownKUp.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -84,6 +85,8 @@
     <None Include="Resources\gulya.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Debug\pr5_ProgrammingEvntsKPrssKDownKUp.exe" />
+    <Content Include="bin\Debug\pr5_ProgrammingEvntsKPrssKDownKUp.pdb" />
     <Content Include="Resources\axe.jpg" />
     <None Include="Resources\bomb.jpg" />
     <None Include="Resources\steve.jpg" />

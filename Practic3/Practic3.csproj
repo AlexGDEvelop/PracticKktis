@@ -88,6 +88,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="bin\Debug\Practic3.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,6 +102,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="imgonline-com-ua-Transparent-backgr-SoPSEMoFeUkzKk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\Practic3.exe" />
+    <Content Include="bin\Debug\Practic3.pdb" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

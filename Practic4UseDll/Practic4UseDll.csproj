@@ -1,9 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\Practic4UseDll.deps.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\Practic4UseDll.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\Practic4UseDll.runtimeconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp3.1\Practic4dll.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Practic4UseDll.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Practic4UseDll.exe" />
+    <None Include="bin\Debug\netcoreapp3.1\Practic4UseDll.pdb" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="Practic4dll">
