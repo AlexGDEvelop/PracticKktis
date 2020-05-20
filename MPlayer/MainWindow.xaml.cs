@@ -28,7 +28,7 @@ namespace MPlayer
     {
         MediaPlayer player = new MediaPlayer();
 
-
+        string[] words;
         Uri[] urisMas;
         DispatcherTimer aTimer;
         int index = 0;
@@ -141,6 +141,7 @@ namespace MPlayer
 
             try
             {
+  
                 timelineSlider.Maximum = myMediaElement.NaturalDuration.TimeSpan.TotalMilliseconds;
 
                 maxtimer.Content = TimeSpan.FromSeconds(Math.Round(myMediaElement.NaturalDuration.TimeSpan.TotalSeconds));
@@ -196,7 +197,7 @@ namespace MPlayer
             for (int i = 0; i < ofl.FileNames.Length; i++)
             {
                 urisMas[i] = new Uri(ofl.FileNames[i]);
-                string[] words = ofl.FileNames[i].Split(new char[] {'\\' }, StringSplitOptions.RemoveEmptyEntries);
+                words = ofl.FileNames[i].Split(new char[] {'\\' }, StringSplitOptions.RemoveEmptyEntries);
                 listbox1.Items.Add(words.Last());
                 
                
@@ -215,6 +216,7 @@ namespace MPlayer
             {
                 index = listbox1.SelectedIndex;
             }
+  
 
             OnMouseDownPlayMedia(urisMas[index], null);
 
