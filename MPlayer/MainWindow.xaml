@@ -7,18 +7,27 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <ListBox x:Name="listbox1" Margin="0,0,0,80" SelectionChanged="listbox1_SelectionChanged">
 
-        <MediaElement Source="dd.wav" Name="myMediaElement" LoadedBehavior="Manual" UnloadedBehavior="Stop" Stretch="Fill" 
+
+        </ListBox>
+
+        <MediaElement Name="myMediaElement" LoadedBehavior="Manual" Visibility="Hidden" UnloadedBehavior="Stop" Stretch="Fill" 
       Margin="0,0,0,0"/>
         <StackPanel VerticalAlignment="Bottom" Width="772" Orientation="Horizontal" Height="30" Margin="10,0,10,37" >
-            <Slider x:Name="timelineSlider" ValueChanged="SeekToMediaPosition" Width="772"  />
+            <Label x:Name="ftime"></Label>
+            <Slider x:Name="timelineSlider" ValueChanged="SeekToMediaPosition" Width="650"  />
+            <Label x:Name="maxtimer" Content="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,2,0,0" Width="38"> </Label>
 
         </StackPanel>
 
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="450" Orientation="Horizontal" Height="37" Margin="171,0" >
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="576" Orientation="Horizontal" Height="37" Margin="104,0,112,0" >
 
             <!-- Play button. -->
-            <Image Source="images\UI_play.bmp" MouseDown="OnMouseDownPlayMedia" Margin="5" Width="30" Height="30" />
+
+            <Image x:Name="fed" Source="images\UI_play.bmp" MouseDown="OnMouseDownPlayMedia" Margin="5" Width="30" Height="30" />
+
+
 
             <!-- Pause button. -->
             <Image Source="images\UI_pause.bmp" MouseDown="OnMouseDownPauseMedia" Margin="5" Width="30" Height="30"/>
@@ -26,18 +35,21 @@
             <!-- Stop button. -->
             <Image Source="images\UI_stop.bmp" MouseDown="OnMouseDownStopMedia" Margin="5" Width="30" Height="30" />
 
+            <Image Source="images\UI_lrew.bmp" MouseDown="OnMouseDownLeftRewMedia" Margin="5" Width="30" Height="30" />
+            <Image Source="images\UI_rrew.bmp" MouseDown="OnMouseDownRightRewMedia" Margin="5" Width="30" Height="30" />
+            <Image Source="images\UI_list.bmp" MouseDown="OnMouseDownListMedia" Margin="5" Width="30" Height="30" />
+
             <!-- Volume slider. This slider allows a Volume range between 0 and 1. -->
-            <TextBlock VerticalAlignment="Center" Margin="5"  >Volume</TextBlock>
+            <TextBlock VerticalAlignment="Center" Margin="5"  >Громкость</TextBlock>
             <Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume" 
        Minimum="0" Maximum="1" Value="0.5" Width="70"/>
 
             <!-- Volume slider. This slider allows you to change the speed of the media playback. -->
-            <TextBlock Margin="5"  VerticalAlignment="Center">Speed</TextBlock>
+            <TextBlock Margin="5"  VerticalAlignment="Center">Скорость</TextBlock>
             <Slider Name="speedRatioSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaSpeedRatio" 
        Value="1" Width="70" />
 
             <!-- Seek to slider. Ths slider allows you to jump to different parts of the media playback. -->
-            <TextBlock Margin="5"  VerticalAlignment="Center">Seek To</TextBlock>
             <Button Content="Открыть" Width="40" Height="20" Click="Button_Click_1"/>
 
 

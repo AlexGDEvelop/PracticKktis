@@ -101,6 +101,9 @@
     <Content Include="f.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="images\UI_list.bmp" />
+    <Resource Include="images\UI_rrew.bmp" />
+    <Resource Include="images\UI_lrew.bmp" />
     <Resource Include="images\UI_stop.bmp" />
     <Resource Include="images\UI_pause.bmp" />
     <Resource Include="images\UI_play.bmp" />

@@ -16,6 +16,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Timers;
+using System.Threading;
+using System.Windows.Threading;
 
 namespace MPlayer
 {
@@ -25,48 +27,55 @@ namespace MPlayer
     public partial class MainWindow : Window
     {
         MediaPlayer player = new MediaPlayer();
-        Stream[] plaMas;
+
+
         Uri[] urisMas;
-        Timer aTimer = new Timer();
+        DispatcherTimer aTimer;
+        int index = 0;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
-            // Create a timer with a two second interval.
-            aTimer = new System.Timers.Timer(2000);
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
-            aTimer.AutoReset = true;
-            aTimer.Enabled = true;
-
+            aTimer = new DispatcherTimer();
+            aTimer.Interval = TimeSpan.FromSeconds(0.5);
+            aTimer.Tick += new EventHandler(OnTimedEvent);
             myMediaElement.MediaOpened += Element_MediaOpened;
             myMediaElement.MediaEnded += Element_MediaEnded;
-            // Play the video once.
-            //player.Play();
         }
 
-        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        private void OnTimedEvent(Object source, EventArgs e)
         {
-            timelineSlider.Value = myMediaElement.Position.TotalMilliseconds;
 
+            timelineSlider.Value = myMediaElement.Position.TotalMilliseconds;
+            ftime.Content =TimeSpan.FromSeconds(Math.Round(myMediaElement.Position.TotalSeconds));
 
         }
+        
 
-        // Play the media.
         void OnMouseDownPlayMedia(object sender, MouseButtonEventArgs args)
         {
 
-            // The Play method will begin the media if it is not currently active or
-            // resume media if it is paused. This has no effect if the media is
-            // already running.
+
+            myMediaElement.Visibility = Visibility.Visible;
+            try
+            {
+                if (urisMas != null & sender != fed) myMediaElement.Source = new Uri(sender.ToString());
+
+            }
+            catch(Exception l)
+            {
+
+            }
             myMediaElement.Play();
-            aTimer.Stop();
-            //myMediaElement.Position.TotalMilliseconds
-            // Initialize the MediaElement property values.
+            
+            aTimer.Start();
+
             InitializePropertyValues();
         }
 
-        // Pause the media.
+
         void OnMouseDownPauseMedia(object sender, MouseButtonEventArgs args)
         {
 
@@ -75,7 +84,37 @@ namespace MPlayer
             myMediaElement.Pause();
         }
 
-        // Stop the media.
+        void OnMouseDownLeftRewMedia(object sender, MouseButtonEventArgs args)
+        {
+
+            if(urisMas.Length!=0&index!=0)index--;
+            OnMouseDownPlayMedia(urisMas[index], null);
+
+
+        }
+
+        void OnMouseDownRightRewMedia(object sender, MouseButtonEventArgs args)
+        {
+            if (urisMas != null)
+            {
+                if (urisMas.Length != 0 & urisMas.Length != index + 1)
+                {
+                    index++;
+                    OnMouseDownPlayMedia(urisMas[index], null);
+                }
+            }
+            
+            
+        }
+
+        void OnMouseDownListMedia(object sender, MouseButtonEventArgs args)
+        {
+
+            if (myMediaElement.Visibility == Visibility.Hidden) myMediaElement.Visibility = Visibility.Visible;
+            else myMediaElement.Visibility = Visibility.Hidden;
+
+        }
+
         void OnMouseDownStopMedia(object sender, MouseButtonEventArgs args)
         {
 
@@ -85,54 +124,49 @@ namespace MPlayer
             aTimer.Stop();
         }
 
-        // Change the volume of the media.
         private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             myMediaElement.Volume = (double)volumeSlider.Value;
         }
 
-        // Change the speed of the media.
+
         private void ChangeMediaSpeedRatio(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             myMediaElement.SpeedRatio = (double)speedRatioSlider.Value;
         }
 
-        // When the media opens, initialize the "Seek To" slider maximum value
-        // to the total number of miliseconds in the length of the media clip.
         private void Element_MediaOpened(object sender, EventArgs e)
         {
+            
+
             try
             {
                 timelineSlider.Maximum = myMediaElement.NaturalDuration.TimeSpan.TotalMilliseconds;
+
+                maxtimer.Content = TimeSpan.FromSeconds(Math.Round(myMediaElement.NaturalDuration.TimeSpan.TotalSeconds));
+                //MessageBox.Show(maxtimer.Content.ToString(), TimeSpan.FromSeconds(Math.Round(myMediaElement.NaturalDuration.TimeSpan.TotalSeconds)).ToString());
             }
             catch(Exception d)
             {
 
-               // MessageBox.Show(d.ToString());
             }
         }
 
-        // When the media playback is finished. Stop() the media to seek to media start.
         private void Element_MediaEnded(object sender, EventArgs e)
         {
+            aTimer.Stop();
             myMediaElement.Stop();
         }
 
-        // Jump to different parts of the media (seek to).
         private void SeekToMediaPosition(object sender, RoutedPropertyChangedEventArgs<double> args)
         {
             int SliderValue = (int)timelineSlider.Value;
-
-            // Overloaded constructor takes the arguments days, hours, minutes, seconds, milliseconds.
-            // Create a TimeSpan with miliseconds equal to the slider value.
             TimeSpan ts = new TimeSpan(0, 0, 0, 0, SliderValue);
             myMediaElement.Position = ts;
         }
 
         void InitializePropertyValues()
         {
-            // Set the media's starting Volume and SpeedRatio to the current value of the
-            // their respective slider controls.
             myMediaElement.Volume = (double)volumeSlider.Value;
             myMediaElement.SpeedRatio = (double)speedRatioSlider.Value;
         }
@@ -146,30 +180,46 @@ namespace MPlayer
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             OpenFileDialog ofl = new OpenFileDialog();
+            listbox1.Items.Clear();
             ofl.Title = "Выберете один или несколько файлов";
             ofl.Multiselect = true;
             ofl.Filter = "Видео или музыка | .mp4, .mp3, .avi, ,wav, .flac";
             ofl.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             ofl.Filter = "Видео (*.avi, *.mp4, *.wmv)|*.avi; *.mp4; *.wmv|Аудио (*.mp3 *.flac *.wav)|*.mp3; *.flac; *.wav";
+            
             ofl.ShowDialog();
             
             int d = ofl.SafeFileNames.Length;
 
             urisMas = new Uri[ofl.FileNames.Length];
-            //urisMas[] = new Uri(ofl.FileNames)
 
             for (int i = 0; i < ofl.FileNames.Length; i++)
             {
                 urisMas[i] = new Uri(ofl.FileNames[i]);
-                MessageBox.Show(urisMas[i].ToString(),ofl.FileNames[i].ToString());
+                string[] words = ofl.FileNames[i].Split(new char[] {'\\' }, StringSplitOptions.RemoveEmptyEntries);
+                listbox1.Items.Add(words.Last());
                 
+               
             }
 
-            if(urisMas!=null)myMediaElement.Source = urisMas[0];
-            //myMediaElement.Play();
-            OnMouseDownPlayMedia(sender,new MouseButtonEventArgs(null,0,MouseButton.Left));
-            //MessageBox.Show(plaMas.ToString());
+
+            if (urisMas[0] != null)myMediaElement.Source = urisMas[0];
+            OnMouseDownPlayMedia(urisMas[0],null);
             
+        }
+
+        private void listbox1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            if (listbox1.SelectedItem != null)
+            {
+                index = listbox1.SelectedIndex;
+            }
+
+            OnMouseDownPlayMedia(urisMas[index], null);
+
+
+
         }
     }
 }
