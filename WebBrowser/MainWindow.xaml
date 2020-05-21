@@ -16,7 +16,7 @@
 
             <TabItem x:Name="it1"  AutomationProperties.Name="item1" Margin="2,0,-12,0" Height="30" >
                 <TabItem.Header >
-                    
+
                     <StackPanel>
                         <TextBlock Margin="0" Height="13"><Run Text="Главная"/><InlineUIContainer>
                                 <Button HorizontalContentAlignment="Left"  Style="{DynamicResource DefaultButtonStyle}" Width="15" Height="15" VerticalContentAlignment="Top" Padding="0" Margin="15,0,0,0" RenderTransformOrigin="1.9,0.6" BorderBrush="{x:Null}" Foreground="{x:Null}">
@@ -35,17 +35,15 @@
                                 <Border BorderBrush="Gainsboro" BorderThickness="1" CornerRadius="13,13,13,13" Margin="97,0,70,0" Background="#FFF1F3F4">
                                     <StackPanel>
                                         <Grid>
-                                            <TextBox TextWrapping="Wrap" Text="https://google.com" Margin="38,4,0,0" RenderTransformOrigin="0.5,0.5" BorderBrush="#00ABADB3" Background="Transparent" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Top" Width="565">
-
-                                            </TextBox>
-                                            <Button x:Name="enter" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" Margin="608,0,10,2" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="10" HorizontalAlignment="Right" VerticalAlignment="Top" >
+                                            <TextBox x:Name="str" TextWrapping="Wrap" Text="https://google.com" Margin="38,4,0,0" RenderTransformOrigin="0.5,0.5" BorderBrush="#00ABADB3" Background="Transparent" HorizontalAlignment="Left" VerticalAlignment="Top" Width="565"/>
+                                            <Button x:Name="enter" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" Margin="608,0,10,2" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="10" HorizontalAlignment="Right" VerticalAlignment="Top" Click="enter_Click" >
                                                 <Button.Background>
                                                     <ImageBrush ImageSource="imgonline-com-ua-Transparent-backgr-gHIS95sDYZ.png" Stretch="Uniform"/>
                                                 </Button.Background>
 
                                             </Button>
 
-                                            <Button x:Name="home" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="10" Margin="0,0,610,2" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                                            <Button x:Name="home" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" BorderBrush="{x:Null}" Foreground="{x:Null}" Panel.ZIndex="10" Margin="0,0,610,2" HorizontalAlignment="Left" VerticalAlignment="Top" Click="home_Click" >
                                                 <Button.Background>
                                                     <ImageBrush ImageSource="home.png" Stretch="Uniform"/>
                                                 </Button.Background>
@@ -56,18 +54,18 @@
 
 
                                 </Border>
-                                <Button x:Name="reload" Content="Button" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" Margin="67,2,0,2" BorderBrush="{x:Null}" Foreground="{x:Null}" >
+                                <Button x:Name="reload" Content="Button" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" Margin="67,2,0,2" BorderBrush="{x:Null}" Foreground="{x:Null}" Click="reload_Click" >
                                     <Button.Background>
                                         <ImageBrush ImageSource="imgonline-com-ua-Transparent-backgr-W2Tx1EPgxc.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
-                                <Button x:Name="fwd" Content="Button" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" Margin="37,2,0,2" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                                <Button x:Name="fwd" Content="Button" Style="{DynamicResource DefaultButtonStyle}" Width="25" Height="25" HorizontalAlignment="Left" Margin="37,2,0,2" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="fwd_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="imgonline-com-ua-Transparent-backgr-gHIS95sDYZ.png" Stretch="Uniform"/>
                                     </Button.Background>
                                 </Button>
 
-                                <Button x:Name="back" Content="Button" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" HorizontalAlignment="Left" Margin="7,2,0,2" Foreground="{x:Null}" BorderBrush="{x:Null}">
+                                <Button x:Name="back" Content="Button" Width="25" Style="{DynamicResource DefaultButtonStyle}" Height="25" HorizontalAlignment="Left" Margin="7,2,0,2" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="back_Click">
                                     <Button.Background>
                                         <ImageBrush ImageSource="imgonline-com-ua-Transparent-backgr-gHIS95sDYZ.png" Stretch="Uniform">
                                             <ImageBrush.RelativeTransform>
@@ -85,7 +83,11 @@
                             <GridSplitter Height="1"
         HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,30,0,-3" Background="#FFE0DFDF"/>
                             <Grid x:Name="block_site" Grid.ColumnSpan="3" Grid.Row="2" Margin="0,31,0,-392">
-                                <WebBrowser x:Name="browser1" Source="https://google.com" Margin="0,0,0,-245"/>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="211*"/>
+                                    <ColumnDefinition Width="601*"/>
+                                </Grid.ColumnDefinitions>
+                                <WebBrowser x:Name="browser1" Source="https://google.com" Margin="0,0,0,-245" Grid.ColumnSpan="2"/>
 
 
                             </Grid>

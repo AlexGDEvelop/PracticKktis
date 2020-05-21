@@ -135,5 +135,39 @@ namespace WebBrowser
             }
             // do your stuff
         }
+
+        private void enter_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                browser1.Source = new Uri(str.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Провертье корректность адреса, добавте http:// если он отсутствует");
+            }
+            //if(str.Text.)
+           
+        }
+
+        private void back_Click(object sender, RoutedEventArgs e)
+        {
+            if (browser1.CanGoBack) browser1.GoBack();
+        }
+
+        private void fwd_Click(object sender, RoutedEventArgs e)
+        {
+            if(browser1.CanGoForward)browser1.GoForward();
+        }
+
+        private void reload_Click(object sender, RoutedEventArgs e)
+        {
+            browser1.Source = new Uri(str.Text);
+        }
+
+        private void home_Click(object sender, RoutedEventArgs e)
+        {
+            browser1.Source = new Uri("http://google.com");
+        }
     }
 }
